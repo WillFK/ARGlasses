@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.glasses.GlassesFragment">
+
+    <fragment
+        android:id="@+id/glasses_ar_fragment"
+        android:name="fk.home.arglasses.ui.glasses.GlassesArFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/glasses_button_camera"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_camera"/>
+    
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/glasses_button_size"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        app:layout_constraintBottom_toTopOf="@id/glasses_button_camera"
+        app:layout_constraintStart_toStartOf="@id/glasses_button_camera"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_size"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/glasses_button_position"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        app:layout_constraintBottom_toTopOf="@id/glasses_button_size"
+        app:layout_constraintStart_toStartOf="@id/glasses_button_size"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_position"
+        android:layout_marginEnd="16dp"/>
+    
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/glasses_button_group"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        tools:visibility="invisible"
+        app:constraint_referenced_ids="glasses_button_camera,glasses_button_position,glasses_button_size"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/glasses_position_control_panel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingBottom="8dp"
+        android:visibility="invisible"
+        tools:visibility="invisible"
+        android:background="@color/colorAccent">
+
+        <ImageView
+            android:id="@+id/glasses_position_control_panel_close"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_close"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/glasses_control_panel_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/position"
+            android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/glasses_control_panel_x_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/x"
+            app:layout_constraintTop_toBottomOf="@id/glasses_control_panel_title"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/glasses_control_panel_x_slider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/glasses_control_panel_x_label"
+            app:layout_constraintBottom_toBottomOf="@id/glasses_control_panel_x_label"
+            app:layout_constraintStart_toEndOf="@+id/glasses_control_panel_x_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:valueFrom="0"
+            android:valueTo="1"/>
+
+        <TextView
+            android:id="@+id/glasses_control_panel_y_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/y"
+            app:layout_constraintTop_toBottomOf="@id/glasses_control_panel_x_label"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/glasses_control_panel_y_slider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/glasses_control_panel_y_label"
+            app:layout_constraintBottom_toBottomOf="@id/glasses_control_panel_y_label"
+            app:layout_constraintStart_toEndOf="@+id/glasses_control_panel_y_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:valueFrom="0"
+            android:valueTo="1"/>
+
+        <TextView
+            android:id="@+id/glasses_control_panel_z_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/z"
+            app:layout_constraintTop_toBottomOf="@id/glasses_control_panel_y_label"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/glasses_control_panel_z_slider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/glasses_control_panel_z_label"
+            app:layout_constraintBottom_toBottomOf="@id/glasses_control_panel_z_label"
+            app:layout_constraintStart_toEndOf="@+id/glasses_control_panel_z_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:valueFrom="0"
+            android:valueTo="1"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/glasses_size_control_panel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingBottom="8dp"
+        android:visibility="invisible"
+        tools:visibility="invisible"
+        android:background="@color/colorAccent">
+
+        <ImageView
+            android:id="@+id/glasses_size_control_panel_close"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_close"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/glasses_size_control_panel_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/size"
+            android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/glasses_control_panel_height_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/height"
+            app:layout_constraintTop_toBottomOf="@id/glasses_size_control_panel_title"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/glasses_control_panel_height_slider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/glasses_control_panel_height_label"
+            app:layout_constraintBottom_toBottomOf="@id/glasses_control_panel_height_label"
+            app:layout_constraintStart_toEndOf="@+id/glasses_control_panel_height_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:valueFrom="0"
+            android:valueTo="1"/>
+
+        <TextView
+            android:id="@+id/glasses_control_panel_depth_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/depth"
+            app:layout_constraintTop_toBottomOf="@id/glasses_control_panel_height_label"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/glasses_control_panel_depth_slider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/glasses_control_panel_depth_label"
+            app:layout_constraintBottom_toBottomOf="@id/glasses_control_panel_depth_label"
+            app:layout_constraintStart_toStartOf="@id/glasses_control_panel_height_slider"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:valueFrom="0"
+            android:valueTo="1"/>
+
+        <TextView
+            android:id="@+id/glasses_control_panel_width_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/width"
+            app:layout_constraintTop_toBottomOf="@id/glasses_control_panel_depth_label"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/glasses_control_panel_width_slider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/glasses_control_panel_width_label"
+            app:layout_constraintBottom_toBottomOf="@id/glasses_control_panel_width_label"
+            app:layout_constraintStart_toStartOf="@id/glasses_control_panel_height_slider"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:valueFrom="0"
+            android:valueTo="1"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ARGlasses</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="position">Position</string>
+    <string name="z">Z</string>
+    <string name="y">Y</string>
+    <string name="x">X</string>
+    <string name="size">Size</string>
+    <string name="width">Width:</string>
+    <string name="height">Height: </string>
+    <string name="depth">Depth: </string>
+</resources>
